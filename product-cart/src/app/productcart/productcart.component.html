@@ -1,0 +1,51 @@
+<div class="col-sm-4" >
+  <div class="panel panel-primary">
+    <div class="panel-heading">Check Out</div>
+    <div class="panel-body fixed-panel">
+      <div class='table-responsivenes'   style="border:none">
+        <table class='table' border="0" style="    position: relative;">
+          <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let product of productlist">
+            <td>{{product.productname}}</td>
+            <td class="space-caret">
+
+              <div class="input-group spinner">
+                <input type="text" class="form-control" value="{{product.qty}}">
+                <div class="input-group-btn-vertical">
+                  <button class="btn btn-default" type="button" (click)="increment(product)"><i class="fa fa-caret-up"></i></button>
+                  <button class="btn btn-default" type="button" (click)="decrement(product)"><i class="fa fa-caret-down"></i></button>
+                </div>
+              </div>
+
+            </td>
+            <td>{{product.cartprice | currency: 'USD' :true: '1.2-2'}}</td>
+          </tr>
+          </tbody>
+
+          <tfoot class="total">
+          <tr>
+            <th style="border-bottom:0">Total</th>
+            <th style="border-bottom:0"></th>
+            <th style="border-bottom:0">{{totalprice | currency: 'USD' :true: '1.2-2'}}</th>
+
+          </tr>
+          </tfoot>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
